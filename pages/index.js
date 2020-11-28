@@ -1,65 +1,43 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Meta from "../component/meta";
+import styles from "../styles/Home.module.css"
+import Navbar from "../component/navbar/Navbar";
+import {AUTHOR} from "../lib/settings";
+import MoblieNav from "../component/navbar/MoblieNav";
 
 export default function Home() {
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
-  )
+    return (
+        <>
+            <Meta title={`Home`}/>
+            <Navbar/>
+            <div className={styles.header}>
+                <div className={styles.main}>
+                    <div className={styles.desc}>
+                        <section className={styles.description}>
+                            <p className={styles.kdlfd}>{AUTHOR}</p>
+                            <p className={styles.kfpo}>Web Developer and Data Scientist</p>
+                            <button className={styles.gBtn}>Resume</button>
+                        </section>
+                        <img src={`/img/eu2.png`} width={`35%`} alt={AUTHOR}/>
+                    </div>
+                    <div className={styles.box}>
+                        <section className={styles.kdodf}>
+                            <div className={styles.kfdff}>
+                                <img src={`/icons/graduated.svg`} width={`40%`}/>
+                                <p>Studying Systems Analysis and Development</p>
+                            </div>
+                            <div className={styles.kfdff}>
+                                <img src={`/icons/study.svg`} width={`40%`}/>
+                                <p>Studying Data Science in Linkedin Learning</p>
+                            </div>
+                            <div className={styles.kfdff}>
+                                <img src={`/icons/github.svg`} width={`40%`}/>
+                                <p>16 publish repositories on Github</p>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+            <MoblieNav/>
+        </>
+    )
 }
