@@ -1,15 +1,13 @@
-import Meta from "../../component/meta";
 import Posts from "../../component/blog/posts";
-import Navbar from "../../component/navbar/Navbar";
 import MoblieNav from "../../component/navbar/MoblieNav";
+import Layout from "../../component/blog/layout";
 
 export default function Home() {
     return (
         <>
-            <Meta title={`Home`}/>
-
-            <Navbar/>
-            <Posts/>
+            <Layout title={`Blog`} page_desc={`Read about what technologies I use and the challenges I face`}>
+                <Posts/>
+            </Layout>
             <MoblieNav/>
         </>
     )

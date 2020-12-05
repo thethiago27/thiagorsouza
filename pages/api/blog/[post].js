@@ -1,6 +1,6 @@
-import fs from 'fs'
-import path from 'path'
-
+import readdir from '../../../lib/readdir'
+import fs from "fs";
+import path from "path";
 
 export default async function getPostById(req, res) {
 
@@ -8,27 +8,23 @@ export default async function getPostById(req, res) {
         query: {post, name},
         method,
     } = req
-    res.setHeader('Content-Type', 'application/json')
 
-    const postL = await getPost(post)
+    fs.readFile(path.join(process.cwd(), 'pages/api/blog/endpoint/posts.json'), 'utf8', (err, data) => {
 
-    res.json(JSON.stringify({postL}))
+        let format = JSON.parse(data)
 
-
-}
-
-const getPost = (id) => {
-    return new Promise((resolve => {
-        fs.readFile(path.join(process.cwd(), `pages/api/blog/endpoint/posts.json`), 'utf8',  (err,data) => {
-            if (err) {
-                return console.log(err)
-            }
-            let dataFormated = JSON.parse(data)
-
-            let result = dataFormated.filter((obj) => {
-                 return obj.url == id
-            })
-            resolve(result)
+        let filter = format.filter((result) => {
+            return result.url === post
         })
-    }))
+
+        res.setHeader('Content-Type', 'application/json')
+
+        res.json(JSON.stringify({postL: filter}))
+
+    })
+
+
+
+
 }
+

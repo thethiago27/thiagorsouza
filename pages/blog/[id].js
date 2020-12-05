@@ -1,8 +1,8 @@
 import {useRouter} from 'next/router'
 import useSwr from 'swr'
-import Meta from "../../component/meta";
-import styles from "../../styles/Home.module.css";
 import MoblieNav from "../../component/navbar/MoblieNav";
+import Layout from "../../component/blog/layout";
+import ContentPostBody from "../../component/blog/content-post-body";
 
 const fetcher = (url) => fetch(url).then((res) => res.json())
 
@@ -14,14 +14,16 @@ export default function postById() {
     if (!data) return <div>Loading...</div>
     return (
         <>
-            <Meta title={`Home`}/>
-            <div className={styles.main}>
+            {data.postL.map((result) => (
+                <Layout title={result.title} page_desc={result.preview} html_url={`blog/${result.url}`}>
+                    <ContentPostBody
+                        title={result.title}
+                        img={result.img_url}
+                        content={result.content}
+                    />
+                </Layout>
+            ))}
 
-                {data.postL.map((result) => (
-                    <p>{result.title}</p>
-                ))}
-
-            </div>
             <MoblieNav/>
         </>
     )

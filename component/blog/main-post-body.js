@@ -19,7 +19,7 @@ export default function MainPostBody({title, url, img, preview}) {
                     <p>{preview}</p>
                 </div>
                 <a onClick={() => router.push(`blog/${url}`)}>
-                    <button className={styles.btns}>Continue Reading</button>
+                    <button className={styles.gBtn}>Continue Reading</button>
                 </a>
             </div>
         </div>

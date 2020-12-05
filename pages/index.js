@@ -7,7 +7,7 @@ import MoblieNav from "../component/navbar/MoblieNav";
 export default function Home() {
     return (
         <>
-            <Meta title={`Home`}/>
+            <Meta title={`Home`} page_desc={`Thiago Rodrigues welcome to my portfolio here you will know my projects is a little about me`}/>
             <Navbar/>
             <div className={styles.header}>
                 <div className={styles.main}>
@@ -35,6 +35,7 @@ export default function Home() {
                             </div>
                         </section>
                     </div>
+                    <p>Oi</p>
                 </div>
             </div>
             <MoblieNav/>
